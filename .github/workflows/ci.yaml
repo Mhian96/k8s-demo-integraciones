@@ -13,10 +13,13 @@ jobs:
     - name: Copiar código al servidor de GitHub
       uses: actions/checkout@v4
 
-    - name: Instalar Kubeconform de forma oficial
+    - name: Instalar Kubeconform directamente
       run: |
-        echo "Instalando kubeconform..."
-        sh -c "$(curl -sL https://raw.githubusercontent.com/yannh/kubeconform/master/scripts/download.sh)" -- v0.6.7 /usr/local/bin
+        echo "Descargando el binario oficial de kubeconform..."
+        curl -L https://github.com/yannh/kubeconform/releases/latest/download/kubeconform_linux_amd64.tar.gz -o kubeconform.tar.gz
+        tar -xzf kubeconform.tar.gz
+        sudo chmod +x kubeconform
+        sudo mv kubeconform /usr/local/bin/
 
     - name: Ejecutar validación estática de app.yaml
       run: |
