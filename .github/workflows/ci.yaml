@@ -13,7 +13,7 @@ jobs:
     - name: Copiar código al servidor de GitHub
       uses: actions/checkout@v4
 
-    - name: Instalar y ejecutar Kubeconform para validación estática
-      uses: yannh/kubeconform-action@v4
+    - name: Validar con Kubeconform
+      uses: yannh/kubeconform@v4
       with:
         files: 'app.yaml'
