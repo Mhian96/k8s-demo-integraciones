@@ -7,7 +7,7 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mi-web
+      app: mi-web-inventada
   template:
     metadata:
       labels:
