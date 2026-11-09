@@ -2,9 +2,9 @@ name: Validador de K8s
 
 on:
   push:
-    branches: [ "master", "main" ]
+    branches: [ "master"]
   pull_request:
-    branches: [ "master", "main" ]
+    branches: [ "master"]
 
 jobs:
   validar-yaml:
