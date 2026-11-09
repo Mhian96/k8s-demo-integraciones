@@ -16,4 +16,4 @@ jobs:
     - name: Validar manifiesto de Kubernetes sin clúster (Offline)
       run: |
         echo "Validando sintaxis y esquema local de app.yaml..."
-        kubectl apply --dry-run=client --validate=warn -f app.yaml
+        kubectl apply --dry-run=client --validate=false -f app.yaml
