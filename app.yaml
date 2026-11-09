@@ -4,11 +4,10 @@ metadata:
   name: mi-web-deploy
   namespace: mi-namespace-web-deploy
 spec:
-  esto-es-un-error-tota: true #error 
   replicas: 1
   selector:
     matchLabels:
-      app: mi-web
+      app: mi-web-inventadaaaaaa 
   template:
     metadata:
       labels:
