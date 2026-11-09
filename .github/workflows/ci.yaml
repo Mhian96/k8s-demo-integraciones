@@ -13,13 +13,13 @@ jobs:
     - name: Copiar código al servidor de GitHub
       uses: actions/checkout@v4
 
-    - name: Instalar Kubeconform (Método directo sin comprimir)
+    - name: Instalar Kubeconform mediante Go
       run: |
-        echo "Descargando el ejecutable de kubeconform..."
-        curl -Lo kubeconform https://github.com/yannh/kubeconform/releases/download/v0.6.7/kubeconform_linux_amd64
-        chmod +x kubeconform
-        sudo mv kubeconform /usr/local/bin/
+        echo "Instalando kubeconform con go install..."
+        go install github.com/yannh/kubeconform/cmd/kubeconform@latest
 
     - name: Ejecutar validación estática de app.yaml
       run: |
+        # Agregamos el directorio de binarios de go al PATH temporalmente
+        export PATH=$PATH:$(go env GOPATH)/bin
         kubeconform -summary app.yaml
