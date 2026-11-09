@@ -1,4 +1,4 @@
-apiVersion: apps/v1beta99_inventado  #antes apps/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mi-web-deploy
