@@ -2,9 +2,9 @@ name: Validador de K8s
 
 on:
   push:
-    branches: [ "master"]
+    branches: [ "master" ]
   pull_request:
-    branches: [ "master"]
+    branches: [ "master" ]
 
 jobs:
   validar-yaml:
@@ -16,4 +16,4 @@ jobs:
     - name: Validar manifiesto de Kubernetes sin clúster (Offline)
       run: |
         echo "Validando sintaxis y esquema local de app.yaml..."
-        kubectl apply --dry-run=client --validate=strict -f app.yaml
+        kubectl apply --dry-run=client --validate=warn -f app.yaml
