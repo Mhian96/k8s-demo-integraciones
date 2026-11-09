@@ -13,10 +13,7 @@ jobs:
     - name: Copiar código al servidor de GitHub
       uses: actions/checkout@v4
 
-    - name: Instalar kubectl y validar manifiesto
+    - name: Validar manifiesto de Kubernetes sin clúster (Offline)
       run: |
-        echo "Verificando versión de kubectl..."
-        kubectl version --client
-
-        echo "Validando sintaxis de app.yaml..."
-        kubectl apply --dry-run=client -f app.yaml
+        echo "Validando sintaxis y esquema local de app.yaml..."
+        kubectl apply --dry-run=client --validate=strict -f app.yaml
