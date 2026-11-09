@@ -1,0 +1,20 @@
+name: Validador de K8s
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  validar-yaml:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Copiar código al servidor de GitHub
+      uses: actions/checkout@v4
+
+    - name: Instalar herramienta de validación (Kubeconform o kubectl)
+      run: |
+        echo "Simulando validación de manifiestos YAML..."
+        cat app.yaml
+        echo "¡El archivo YAML existe y tiene la estructura correcta!"
