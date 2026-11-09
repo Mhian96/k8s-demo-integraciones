@@ -13,10 +13,11 @@ jobs:
     - name: Copiar código al servidor de GitHub
       uses: actions/checkout@v4
 
-    - name: Instalar Kubeconform directamente
+    - name: Instalar Kubeconform de forma segura
       run: |
-        echo "Descargando el binario oficial de kubeconform..."
-        curl -L https://github.com/yannh/kubeconform/releases/latest/download/kubeconform_linux_amd64.tar.gz -o kubeconform.tar.gz
+        echo "Descargando el ejecutable de kubeconform..."
+        curl -sL https://github.com/yannh/kubeconform/releases/download/v0.6.7/kubeconform_linux_amd64.tar.gz -o kubeconform.tar.gz
+        ls -l kubeconform.tar.gz
         tar -xzf kubeconform.tar.gz
         sudo chmod +x kubeconform
         sudo mv kubeconform /usr/local/bin/
